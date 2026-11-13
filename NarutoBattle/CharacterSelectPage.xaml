@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NarutoBattle.CharacterSelectPage"
+             Title="Character Select"
+             BackgroundColor="{StaticResource DarkBg}">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20" RowSpacing="10">
+
+        <Label Grid.Row="0" Text="Choose 2 Fighters" Style="{StaticResource HeadingLabel}" />
+        <Label Grid.Row="1" x:Name="CountLabel" Text="Selected 0 of 2" TextColor="White" />
+
+        <!-- Multiple selection lets the user tap two characters.
+             ItemsSource is set in the code-behind from GameState.Roster. -->
+        <CollectionView Grid.Row="2" x:Name="FighterList"
+                        SelectionMode="Multiple"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemsLayout>
+                <!-- A grid with 4 cards per row -->
+                <GridItemsLayout Orientation="Vertical" Span="4"
+                                 HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <!-- DataTemplate = how ONE character card looks. {Binding X} reads property X of Fighter. -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="{StaticResource CardBg}" Padding="8"
+                            Stroke="{StaticResource NinjaOrange}" StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="4">
+                            <Image Source="{Binding Image}" HeightRequest="120" Aspect="AspectFill" />
+                            <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+                            <Label Text="{Binding Attack, StringFormat='ATK {0}'}" TextColor="#BBBBBB" FontSize="12" />
+                            <Label Text="{Binding Defense, StringFormat='DEF {0}'}" TextColor="#BBBBBB" FontSize="12" />
+                            <Label Text="{Binding Speed, StringFormat='SPD {0}'}" TextColor="#BBBBBB" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Disabled until exactly 2 fighters are selected -->
+        <Button Grid.Row="3" x:Name="ContinueButton" Text="Continue"
+                Style="{StaticResource MenuButton}" IsEnabled="False"
+                Clicked="OnContinueClicked" />
+    </Grid>
+</ContentPage>

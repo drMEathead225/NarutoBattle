@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NarutoBattle.BattleTypePage"
+             Title="Battle Type"
+             BackgroundColor="{StaticResource DarkBg}">
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        <Label Text="Choose Battle Type" Style="{StaticResource HeadingLabel}" />
+
+        <!-- Shows the two fighters the user chose: picture | VS | picture -->
+        <Grid ColumnDefinitions="*,Auto,*" ColumnSpacing="15">
+            <VerticalStackLayout Grid.Column="0" Spacing="6">
+                <Image x:Name="Image1" HeightRequest="180" Aspect="AspectFit" />
+                <Label x:Name="Name1" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Label Grid.Column="1" Text="VS" TextColor="White" FontSize="28"
+                   FontAttributes="Bold" VerticalOptions="Center" />
+
+            <VerticalStackLayout Grid.Column="2" Spacing="6">
+                <Image x:Name="Image2" HeightRequest="180" Aspect="AspectFit" />
+                <Label x:Name="Name2" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <Button Text="Solo Battle" Style="{StaticResource MenuButton}" Clicked="OnSoloClicked" />
+        <!-- Not part of the 5-screen plan, so it is shown but disabled -->
+        <Button Text="Team Battle (Coming Soon)" Style="{StaticResource MenuButton}" IsEnabled="False" />
+        <Button Text="Back" Style="{StaticResource MenuButton}" BackgroundColor="Gray" Clicked="OnBackClicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="NarutoBattle.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:NarutoBattle"
+    Title="Naruto Battle Arena"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- The title screen is the only page that is the app's "home" -->
+    <ShellContent Title="Title"
+                  ContentTemplate="{DataTemplate local:TitlePage}"
+                  Route="TitlePage" />
+</Shell>

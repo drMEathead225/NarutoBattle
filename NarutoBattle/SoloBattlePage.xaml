@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NarutoBattle.SoloBattlePage"
+             Title="Solo Battle"
+             BackgroundColor="{StaticResource DarkBg}">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20" RowSpacing="12">
+
+        <Label Grid.Row="0" x:Name="RoundLabel" Text="Round 0" Style="{StaticResource HeadingLabel}"
+               HorizontalOptions="Center" />
+
+        <!-- Fighter 1 on the left, Fighter 2 on the right, each with a health bar -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto,*" ColumnSpacing="20">
+            <VerticalStackLayout Grid.Column="0" Spacing="6">
+                <Image x:Name="Image1" HeightRequest="180" Aspect="AspectFit" />
+                <Label x:Name="Name1" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+                <ProgressBar x:Name="Hp1Bar" Progress="1" ProgressColor="#4CAF50" />
+                <Label x:Name="Hp1Label" TextColor="White" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Label Grid.Column="1" Text="VS" TextColor="White" FontSize="28"
+                   FontAttributes="Bold" VerticalOptions="Center" />
+
+            <VerticalStackLayout Grid.Column="2" Spacing="6">
+                <Image x:Name="Image2" HeightRequest="180" Aspect="AspectFit" />
+                <Label x:Name="Name2" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+                <ProgressBar x:Name="Hp2Bar" Progress="1" ProgressColor="#4CAF50" />
+                <Label x:Name="Hp2Label" TextColor="White" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Battle log: newest round appears on top -->
+        <ScrollView Grid.Row="2">
+            <Label x:Name="LogLabel" TextColor="White" FontSize="15" />
+        </ScrollView>
+
+        <Button Grid.Row="3" x:Name="AttackButton" Text="Attack!"
+                Style="{StaticResource MenuButton}" Clicked="OnAttackClicked" />
+    </Grid>
+</ContentPage>

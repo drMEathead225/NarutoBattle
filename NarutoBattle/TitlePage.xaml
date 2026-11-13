@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NarutoBattle.TitlePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource DarkBg}">
+    <VerticalStackLayout VerticalOptions="Center" Padding="40" Spacing="25">
+        <Image Source="naruto.jpg" HeightRequest="220" Aspect="AspectFit" />
+        <Label Text="NARUTO" Style="{StaticResource HeadingLabel}"
+               FontSize="48" HorizontalOptions="Center" />
+        <Label Text="Battle Arena" TextColor="White" FontSize="24" HorizontalOptions="Center" />
+        <Button Text="Enter" Style="{StaticResource MenuButton}" Clicked="OnEnterClicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NarutoBattle.VictoryPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource DarkBg}">
+    <VerticalStackLayout VerticalOptions="Center" Padding="40" Spacing="20">
+        <Label Text="VICTORY!" Style="{StaticResource HeadingLabel}"
+               FontSize="42" HorizontalOptions="Center" />
+        <Image x:Name="WinnerImage" HeightRequest="260" Aspect="AspectFit" />
+        <Label x:Name="WinnerLabel" TextColor="White" FontSize="28"
+               FontAttributes="Bold" HorizontalOptions="Center" />
+        <!-- Explains WHY this character won -->
+        <Label x:Name="ReasonLabel" TextColor="#DDDDDD" FontSize="18"
+               HorizontalTextAlignment="Center" />
+        <Button Text="Play Again" Style="{StaticResource MenuButton}" Clicked="OnPlayAgainClicked" />
+    </VerticalStackLayout>
+</ContentPage>
